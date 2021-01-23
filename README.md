@@ -8,7 +8,8 @@ This proyect is about a ONG of psocology where the psicology does free supports 
 
 ## How run the proyecto 🚀
 
-If you want run this proyect in localhost you need to follow the next steps:
+###IN LOCALHOST
+If you want run this proyect in localhost you need to follow the next steps: 
 * 1 -> unzip the proyect or clone in your pc
 * 2 -> install node and composer in your pc
 * 3 -> open 2 terminal in the folder of the proyect
@@ -36,6 +37,44 @@ php artisan serve
 _for up the server for the proyect, this comand give you the url of the proyect in your local host, just click the url and you will be able to see the proyect._
 
 
+###IN PRODUCTION
+
+```
+composer install
+```
+```
+npm install
+```
+```
+npm run production
+```
+**important** -> checked port 80 en .env
+```
+php artisan storage:link
+```
+```
+php artisan key:generate
+```
+**important** -> restart the server
+```
+php artisan migrate:refresh
+```
+```
+php artisan tinker
+```
+```php
+use Illuminate\Support\Facades\Crypt;
+$psychologist =  new App\Models\Psychologist;
+$psychologist->name = 'root';
+$psychologist->lastname = 'root';
+$psychologist->email = 'root@gmail.com';
+$psychologist->phone = '';
+$psychologist->state = 'active';
+$psychologist->password = Crypt::encryptString('root');
+$psychologist->role = 'admin';
+$psychologist->save();
+exit
+```
 
 ## License 📄
 
