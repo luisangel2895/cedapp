@@ -1,0 +1,104 @@
+@tailwind base;
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+@tailwind components;
+@tailwind utilities;
+
+.header-list>li{
+    @apply mr-8
+}
+
+.trapezoid-wrapper{
+    @apply absolute top-0 right-0 z-0 w-3/6;
+    height: 92.333333%;
+    filter: drop-shadow(-1px 6px 3px rgba(50, 50, 0, 0.3));
+    margin: -3% -14% 0 0;
+}
+
+.trapezoid{
+    @apply w-full h-full transform rounded-xl -rotate-6;
+    clip-path: polygon(21% 0, 100% 0, 100% 100%, 0% 100%);
+};
+
+
+.bgr-block{
+    @apply absolute top-0 left-0 z-0 w-9/12;
+    height : 48%;
+}
+
+.bgr-block-yellow{
+    @apply w-full h-full bg-yellow-400 rounded-xl;
+    clip-path: polygon(0 10%, 100% 0, 85% 100%, 0% 100%);
+}
+
+.testeable{
+    border : 1px solid black
+}
+
+.testeable-bg{
+    border : 1px solid black;
+    background-color: fuchsia;
+}
+
+.h-80vh{
+    height: 80vh;
+}
+
+.h-double-screen{
+    height: 200vh;
+}
+.screen-10rem{
+    height: calc(100vh - 10rem);
+}
+
+.swiper-slide{
+    height: 16rem !important;
+}
+
+.rounded-item-home{
+    @apply flex items-center justify-center mx-4 bg-white border rounded-full shadow-xl;
+}
+
+.stop-scrolling{
+    height: 100vh;
+    overflow: hidden;
+}
+
+.-ml-100vw{
+    margin-left: -100vw
+}
+
+@responsive{
+    .rounded-size-xl{
+        @apply w-32 h-32;
+    }
+
+    .rounded-size-normal{
+        @apply w-24 h-24;
+    }
+
+    .rounded-size-item-xl{
+        @apply w-16 h-16;
+    }
+
+    .rounded-size-item-normal{
+        @apply w-12 h-12;
+    }
+}
+
