@@ -84,7 +84,7 @@ php artisan migrate
 ```
 php artisan tinker
 ```
-12 -> And finally in the tinker console you need to add the first user admin with these commands, these commands
+* 12 -> And finally in the tinker console you need to add the first user admin with these commands, these commands
  will create psychologist with role admin (you can modifier the psychologist data as you want).
 ```php
 use Illuminate\Support\Facades\Crypt;
