@@ -23,6 +23,6 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.1",
-        "swiper": "^6.4.5"
+        "swiper": "^6.4.8"
     }
 }
