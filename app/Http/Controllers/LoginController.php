@@ -9,7 +9,16 @@ use Illuminate\Support\Facades\Crypt;
 class LoginController extends Controller
 {
     public function index(){
-        return view('auth.login');
+        session_start();
+        if(isset($_SESSION['id'])){
+            if ($_SESSION['role'] == 'admin'){
+                return redirect('/dashboard-admin');
+            } else {
+                return redirect('/dashboard');
+            }
+        } else {
+            return view('auth.login');
+        }
     }
 
     public function login(Request $request){
@@ -44,7 +53,6 @@ class LoginController extends Controller
                     } else {
                         return redirect('/login');
                     }
-
                 }
             }
             else{
