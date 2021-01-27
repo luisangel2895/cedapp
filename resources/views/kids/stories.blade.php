@@ -27,7 +27,7 @@
                             <img src="{{ Storage::disk('public') -> url($story -> image) }}" class="w-full mb-4 rounded-xl" alt="">
                             <a href="/kids/story/{{ $story->id }}"><p class="mb-2 text-2xl">{{ $story->title }}</p></a>
                             <p class="mb-2 text-gray-500">{{ $story->created_at }}</p>
-                            <div>{!! $story->story !!}</div>
+{{--                            <div>{!! $story->story !!}</div>--}}
                         </div>
                     @endforeach
 

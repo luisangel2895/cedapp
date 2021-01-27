@@ -14,8 +14,15 @@ class StoryController extends Controller
      */
     public function index()
     {
+        $name = $_SESSION['name'];
+        $email = $_SESSION['email'];
+        $role = $_SESSION['role'];
+
         return view('auth.story.index', [
             'stories' => Story::all(),
+            'name' => $name,
+            'email' => $email,
+            'role' => $role,
         ]);
     }
 
@@ -26,7 +33,14 @@ class StoryController extends Controller
      */
     public function create()
     {
-        return view('auth.story.create');
+        $name = $_SESSION['name'];
+        $email = $_SESSION['email'];
+        $role = $_SESSION['role'];
+        return view('auth.story.create', [
+            'name' => $name,
+            'email' => $email,
+            'role' => $role,
+        ]);
     }
 
     /**
@@ -51,8 +65,14 @@ class StoryController extends Controller
      */
     public function show(Story $story)
     {
+        $name = $_SESSION['name'];
+        $email = $_SESSION['email'];
+        $role = $_SESSION['role'];
         return view('auth.story.show', [
             'story' => $story,
+            'name' => $name,
+            'email' => $email,
+            'role' => $role,
         ]);
 
     }
@@ -65,9 +85,15 @@ class StoryController extends Controller
      */
     public function edit($id)
     {
+        $name = $_SESSION['name'];
+        $email = $_SESSION['email'];
+        $role = $_SESSION['role'];
         $story =  Story::findOrFail($id);
         return view('auth.story.edit', [
-            'story' => $story
+            'story' => $story,
+            'name' => $name,
+            'email' => $email,
+            'role' => $role,
         ]);
     }
     /**
@@ -127,8 +153,10 @@ class StoryController extends Controller
         $story->title = $validData['title'];
         $story->story = $validData['story'];
         $story->image = $image -> store('stories', 'public');
-        $story->author = $_SESSION['name'];
+        $story->author = $_SESSION['name']." ".$_SESSION['lastname'];
         $story->save();
     }
+
+
 
 }

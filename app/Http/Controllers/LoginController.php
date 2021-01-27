@@ -36,6 +36,7 @@ class LoginController extends Controller
                 session_start();
                 $_SESSION['id'] = $psychologist->id;
                 $_SESSION['name'] = $psychologist->name;
+                $_SESSION['lastname'] = $psychologist->name;
                 $_SESSION['email'] = $psychologist->email;
 
                 if($psychologist->role == 'admin'){

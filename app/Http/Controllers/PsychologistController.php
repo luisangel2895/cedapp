@@ -16,8 +16,12 @@ class PsychologistController extends Controller
      */
     public function index()
     {
+        $name = $_SESSION['name'];
+        $email = $_SESSION['email'];
         return view('auth.psychologist.index', [
                 'psychologists' => Psychologist::all(),
+                'name' => $name,
+                'email' => $email,
             ]
         );
     }
@@ -29,7 +33,12 @@ class PsychologistController extends Controller
      */
     public function create()
     {
-        return view('auth.psychologist.create');
+        $name = $_SESSION['name'];
+        $email = $_SESSION['email'];
+        return view('auth.psychologist.create',[
+            'name' => $name,
+            'email' => $email,
+        ]);
     }
 
     /**
@@ -59,10 +68,14 @@ class PsychologistController extends Controller
      */
     public function show(Psychologist $psychologist)
     {
+        $name = $_SESSION['name'];
+        $email = $_SESSION['email'];
         $password = $this->secureDecrypt($psychologist->password);
         return view('auth.psychologist.show', [
             'psychologist' => $psychologist,
             'password' => $password,
+            'name' => $name,
+            'email' => $email,
         ]);
     }
 
@@ -74,9 +87,13 @@ class PsychologistController extends Controller
      */
     public function edit($id)
     {
+        $name = $_SESSION['name'];
+        $email = $_SESSION['email'];
         $psychologist =  Psychologist::findOrFail($id);
         return view('auth.psychologist.edit', [
-            'psychologist' => $psychologist
+            'psychologist' => $psychologist,
+            'name' => $name,
+            'email' => $email,
         ]);
     }
 
